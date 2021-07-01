@@ -18,7 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <builder>paketobuildpacks/builder:tiny</builder>
         <spring-native.version>0.10.0</spring-native.version>
-        <native-maven-plugin.version>0.9.0</native-maven-plugin.version>
+        <native-maven-plugin.version>0.9.1</native-maven-plugin.version>
     </properties>
 
 
@@ -42,6 +42,11 @@
         <dependency>
             <groupId>org.springframework.experimental</groupId>
             <artifactId>spring-native</artifactId>
+            <version>${spring-native.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.experimental</groupId>
+            <artifactId>spring-aot</artifactId>
             <version>${spring-native.version}</version>
         </dependency>
     </dependencies>
@@ -85,13 +90,6 @@
     <profiles>
         <profile>
             <id>native</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.springframework.experimental</groupId>
-                    <artifactId>spring-aot</artifactId>
-                    <version>${spring-native.version}</version>
-                </dependency>
-            </dependencies>
             <build>
                 <plugins>
                     <plugin>
